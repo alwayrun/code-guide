@@ -43,7 +43,7 @@ layout: nil
 html {
   font-size: 16px;
 }
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   html {
     font-size: 20px;
   }
@@ -78,21 +78,31 @@ h4 { font-size: 1.25rem }
 p {
   margin: 0 0 1rem;
 }
-p:last-child {
-  margin-bottom: 0;
-}
 .lead {
   font-size: 1.3rem;
 }
 
 blockquote {
   position: relative;
+  margin: 0 1rem 1rem;
   font-style: italic;
   color: #7a7a7a;
 }
 blockquote p {
   margin-bottom: 0;
 }
+
+ul li {
+  margin-bottom: .25rem;
+}
+
+/* Tighten up margin on last items */
+p:last-child,
+ul:last-child,
+blockquote:last-child{
+  margin-bottom: 0;
+}
+
 
 
 /*
@@ -115,11 +125,9 @@ code {
 pre {
   display: block;
   margin: 0 0 1rem;
-  line-height: 1.5;
+  line-height: 1.4;
   white-space: pre;
   white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
 }
 pre code {
   padding: 0;
@@ -143,20 +151,21 @@ pre code {
  */
 
 .col {
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
 .col p {
   max-width: 40rem;
 }
 .col + .col {
+  border-top: 1px solid #dfe1e8;
   background-color: #f7f7f9;
 }
-@media (min-width: 38rem) {
+@media (min-width: 38em) {
   .col {
     padding: 2rem;
   }
 }
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   .section {
     display: table;
     width: 100%;
@@ -167,6 +176,14 @@ pre code {
     padding: 3rem;
     vertical-align: top;
   }
+  .col + .col {
+    border-top: 0;
+  }
+}
+
+/* Make the ToC a whole section */
+.toc .col + .col {
+  background-color: #fff;
 }
 
 
@@ -201,6 +218,13 @@ pre code {
   color: #fff;
 }
 
+@media (min-width: 38em) {
+  .masthead {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
 
 /*
  * Sections
@@ -211,7 +235,7 @@ pre code {
   background-color: #dfe1e8;
 }
 
-@media (min-width: 38rem) {
+@media (min-width: 38em) {
   .heading {
     padding: 3rem 3rem 2.5rem;
   }
@@ -227,7 +251,7 @@ pre code {
  */
 
 .footer {
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
   font-size: 90%;
   text-align: center;
 }
@@ -249,3 +273,4 @@ pre code {
  */
 
 {% include syntax.css %}
+{% include ads.css %}
